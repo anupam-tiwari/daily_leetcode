@@ -1,0 +1,48 @@
+# python
+
+class Solution:
+    def clearDigits(self, s: str) -> str:
+        # my sol
+
+        # pointer = 0 
+        # while pointer != len(s):
+        #     if s[pointer].isnumeric():
+        #         if pointer == 0: return s
+        #         else: 
+        #             s = s[:pointer-1] + s[pointer+1:]
+        #             pointer = pointer - 2
+        #     pointer+=1
+        # return s
+
+        # elegant solution 
+        # s1=''
+        # for i in s:
+        #     if i.isalpha():
+        #         s1+=i
+        #     else:
+        #         s1=s1[:-1]
+        # return s1
+
+        s1 = ''
+        for i in s: 
+            if i.isalpha(): s1+=i
+            else: s1 = s1[:-1]
+        return s1
+        
+
+# c++
+class Solution {
+public:
+    string clearDigits(string s) {
+        string stack;
+        for (char c: s){
+            if (isdigit(c)){
+                if (!stack.empty()) stack.pop_back();
+            }else{
+                stack.push_back(c); 
+            }
+        }
+        return stack; 
+        
+    }
+};
