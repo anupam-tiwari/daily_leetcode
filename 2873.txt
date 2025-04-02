@@ -1,3 +1,4 @@
+# python
 class Solution:
     def maximumTripletValue(self, nums: List[int]) -> int:
         # maxi = 0 
@@ -14,3 +15,38 @@ class Solution:
             maxelement = max(maxelement, num)
         return maxtriplet
         
+
+# c++ 
+
+class Solution {
+public:
+    long long maximumTripletValue(vector<int>& nums) {
+        long maxtriplet = 0, maxelement = 0, maxdiff = 0;
+
+        for (long num : nums){
+            maxtriplet = max(maxtriplet, maxdiff * num);
+            maxdiff = max(maxdiff, maxelement - num);
+            maxelement = max(maxelement, num);
+        }
+
+        return maxtriplet;
+    }
+};
+
+
+# java
+
+
+class Solution {
+    public long maximumTripletValue(int[] nums) {
+        long maxtrip = 0, maxele = 0, maxdiff = 0; 
+
+        for (int num: nums){
+            maxtrip = Math.max(maxtrip, maxdiff*num);
+            maxdiff = Math.max(maxdiff, maxele - num); 
+            maxele = Math.max(maxele, num); 
+        }
+        return maxtrip;
+        
+    }
+}
