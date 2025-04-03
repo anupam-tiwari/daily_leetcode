@@ -1,0 +1,11 @@
+# python 
+
+class Solution:
+    def maximumTripletValue(self, nums: List[int]) -> int:
+        maxitriple, maxdiff, maxele = 0,0,0
+        for num in nums: 
+            maxitriple = max(maxitriple, maxdiff*num)
+            maxdiff = max(maxdiff,maxele - num)
+            maxele = max(maxele,num)
+            
+        return maxitriple
