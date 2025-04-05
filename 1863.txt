@@ -1,0 +1,9 @@
+class Solution:
+    def subsetXORSum(self, nums: List[int]) -> int:
+        def dfs(index, curr):
+            if index == len(nums): return curr 
+            inc = dfs(index+1, curr)
+            exc = dfs(index+1, curr ^ nums[index])
+
+            return inc + exc
+        return dfs(0, 0)
